@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "fbjs",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "sort-imports-es6-autofix",
+    "prettier",
+    // "flowtype",
+    "import"
+  ],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js"
+        ]
+      }
+    ]
+  }
+}
