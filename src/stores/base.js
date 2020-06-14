@@ -32,7 +32,10 @@ class BaseRepository {
     if (data && !errors.length) {
       this.Table = {
         ...this.Table,
-        data,
+        data: data.hits || [],
+        totalCount: data.count,
+        hasMore: data.more,
+        lastRow: data.to,
         loading: false,
         errors: [],
       }

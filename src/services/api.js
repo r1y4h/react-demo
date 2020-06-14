@@ -11,11 +11,11 @@ export default class Api {
 
   get = (url, payload = {}, headers = {}) => {
     return this.Instance.get(
-      `${url}${`?${this.payloadToQueryString({
+      `${url}${this.payloadToQueryString({
         ...payload,
         app_id: this.options.apiId,
         app_key: this.options.apiKey,
-      })}`}`,
+      })}`,
       {
         ...headers,
       }
@@ -33,33 +33,29 @@ export default class Api {
   }
 
   errorParser(e) {
+    const defaults = {
+      data: {},
+      errors: [{ message: 'Your request cannot be completed.' }],
+    }
+
     if (e.response) {
       const {
         data: { errorCode, errorMessages },
       } = e.response
-      if (e.response.status === 403) {
-        if (e.response.data) {
-          localStorage.setItem('PAGE_ERROR', JSON.stringify(e.response.data))
-        }
-        window.location.replace(`/404?error`)
-      }
 
       return {
-        data: {},
+        ...defaults,
         errorCode,
-        errors: errorMessages || [{ message: 'Your request cannot be completed as of now' }],
+        ...(errorMessages || defaults.errors),
       }
     }
 
-    return {
-      data: {},
-      errors: [{ message: 'Your request cannot be completed as of now' }],
-    }
+    return defaults
   }
 
   payloadToQueryString = (payload = {}) =>
     Object.keys(payload)
-      .filter((key) => !payload[key])
-      .map((key) => key + '=' + encodeURIComponent(payload[key]))
+      .filter((key) => payload[key])
+      .map((key, index) => `${!index ? '?' : ''}${key}=${encodeURIComponent(payload[key])}`)
       .join('&')
 }

@@ -1,10 +1,10 @@
+import { ThemeProvider } from 'styled-components'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import smoothscroll from 'smoothscroll-polyfill'
-import { ThemeProvider } from 'styled-components'
 
-import App from './App'
 import './sass/main.scss'
+import App from './App'
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!./sass/_vars.scss')

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import services from 'services'
 import RecipeStore from 'stores/recipe'
+import services from 'services'
 
 const storesContext = React.createContext({
   recipeStore: new RecipeStore(services.recipeService),
 })
 
-export default () => React.useContext(storesContext)
+export const useStores = () => React.useContext(storesContext)
