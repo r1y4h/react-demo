@@ -7,6 +7,7 @@ To use:
 3. Open terminal/console
 4. Run "yarn install"
 5. Then "yarn start"
+6. Open a chrome and navigate to http://localhost:3000/
 
 Note: you must have yarn installed locally. Nodejs version used in this project is v10.15.2
 
@@ -23,5 +24,6 @@ Major components used in this demo project:
 9. eslint, prettier and husky
 
 Recipe API is from https://www.edamam.com/
+
 Design is inspired by Monja
 https://www.behance.net/gallery/91619935/Monja-Wallet-App-Design-Dark-Mode
