@@ -17,6 +17,8 @@ const Home = () => {
   const { SearchCriteria, Table } = recipeStore
 
   const fetchRecipes = useDebounce(async (payload) => {
+    recipeStore.SearchCriteria.page === 0 && setRecipes([])
+
     await recipeStore.fetchTable(payload)
 
     const {
@@ -28,7 +30,6 @@ const Home = () => {
     if (recipeData.length) {
       if (page === 0) {
         setRecipes(recipeData)
-        window.scroll({ top: 0, left: 0, behavior: 'smooth' })
       } else {
         setRecipes((items) => items.concat(recipeData))
       }

@@ -52,7 +52,7 @@ const RecipeItem = ({ recipeData = {} }) => {
       </CardHeader>
       <CardBody className="pt-0">
         <div ref={recipeItemRef} className="row">
-          <Col xs="12" md="3">
+          <Col xs="12" md="3" className="text-center mb-4">
             <img src={recipe.image} className="image-fluid" alt={recipe.label} />
           </Col>
           <Col xs="12" md="9">

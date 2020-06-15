@@ -92,6 +92,10 @@ header {
   hr {
     height: 1px;
   }
+
+  img {
+    border: ($white) solid 2px;
+  }
 }
 
 footer {

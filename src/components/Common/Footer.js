@@ -25,7 +25,6 @@ export default () => {
 
   return (
     <footer className="p-2">
-      <span id="edamam-badge" data-color="transparent" />
       <span className="text-white">
         <small>Inspired by </small>
         <a
@@ -36,6 +35,7 @@ export default () => {
           Monja
         </a>
       </span>
+      <span id="edamam-badge" data-color="transparent" />
       <button
         className={cx('btn btn-white button-scroll-to-top', !showScrollToTop && 'fade')}
         onClick={handleScrollToTop}

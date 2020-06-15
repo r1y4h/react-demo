@@ -14,9 +14,9 @@ export default () => {
           <NavbarBrand href="/" className="mr-auto text-primary">
             React Template
           </NavbarBrand>
-          <Nav navbar>
-            <NavItem>
-              <Button color="white" onClick={() => setIsSearchOpen(true)}>
+          <Nav navbar className="ml-auto w-50 justify-content-end">
+            <NavItem className="w-100">
+              <Button color="white" className="w-100 text-right" onClick={() => setIsSearchOpen(true)}>
                 <i className="material-icons-outlined text-white md-36" tooltip="Click to search">
                   search
                 </i>
