@@ -1,5 +1,7 @@
 # react-template
 
+This react project is for DEMO purpose only.
+
 To use:
 
 1. Clone or download
