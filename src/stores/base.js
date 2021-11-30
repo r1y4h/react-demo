@@ -21,7 +21,7 @@ class BaseRepository {
   Table = defaults.Table
   CRUD = defaults.CRUD
 
-  fetchTable = async (payload) => {
+  fetchTable = async payload => {
     this.Table = {
       ...this.Table,
       loading: true,
@@ -50,7 +50,7 @@ class BaseRepository {
     return false
   }
 
-  getById = async (id) => {
+  getById = async id => {
     this.CRUD = {
       ...this.CRUD,
       loading: true,

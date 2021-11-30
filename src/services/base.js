@@ -6,10 +6,10 @@ export default class BaseService {
   get = (url, payload) => {
     return this.api.get(`${this.url}${url || ''}`, payload)
   }
-  getById = (id) => {
+  getById = id => {
     return this.api.get(`${this.url}${id}`)
   }
-  fetchTable = (payload) => {
+  fetchTable = payload => {
     return this.api.get(this.url, payload)
   }
 }

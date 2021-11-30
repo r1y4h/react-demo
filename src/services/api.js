@@ -55,7 +55,7 @@ export default class Api {
 
   payloadToQueryString = (payload = {}) =>
     Object.keys(payload)
-      .filter((key) => payload[key])
+      .filter(key => payload[key])
       .map((key, index) => `${!index ? '?' : ''}${key}=${encodeURIComponent(payload[key])}`)
       .join('&')
 }

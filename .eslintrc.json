@@ -1,85 +1,21 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "fbjs",
-    "prettier",
-    "prettier/react"
-  ],
-  "plugins": [
-    "react",
-    "react-hooks",
-    "sort-imports-es6-autofix",
-    "prettier",
-    "import"
-  ],
-  "env": {
-    "node": true,
-    "browser": true,
-    "es6": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "jsx": true,
-      "classes": true,
-      "objectLiteralShorthandMethods": true,
-      "experimentalObjectRestSpread": true,
-      "arrowFunctions": true,
-      "modules": true
-    },
-    "sourceType": "module"
-  },
-  "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
-    }
-  },
+  "extends": ["react-app"],
+  "plugins": ["import", "sort-imports-es6-autofix"],
   "rules": {
-    "consistent-return": 0,
-    "semi": 0,
-    "max-len": [
+    "import/no-anonymous-default-export": [
       "error",
       {
-        "code": 120
+        "allowArrowFunction": true,
+        "allowObject": true
       }
     ],
-    "indent": 0,
-    "import/no-webpack-loader-syntax": "off",
-    "no-constant-condition": 0,
-    "no-extra-semi": 0,
-    "no-unused-vars": 2,
-    "no-undef": 2,
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-uses-vars": 2,
-    "react/jsx-key": 2,
-    "react/jsx-no-duplicate-props": 2,
-    "react/jsx-no-undef": 2,
-    "react/jsx-uses-react": 2,
-    "no-irregular-whitespace": 2,
     "sort-imports-es6-autofix/sort-imports-es6": [
-      "error",
+      "warn",
       {
-        "ignoreCase": true
+        "ignoreCase": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
       }
-    ],
-    "flowtype/define-flow-type": "error",
-    "flowtype/no-dupe-keys": "error",
-    "flowtype/no-primitive-constructor-types": "error",
-    "flowtype/no-types-missing-file-annotation": "error",
-    "flowtype/no-weak-types": "off",
-    "flowtype/require-parameter-type": "off",
-    "flowtype/require-return-type": "off",
-    "flowtype/require-valid-file-annotation": [
-      "error",
-      "always",
-      {
-        "annotationStyle": "block"
-      }
-    ],
-    "flowtype/require-variable-type": "off",
-    "flowtype/sort-keys": "off",
-    "flowtype/type-id-match": "off",
-    "flowtype/use-flow-type": "error"
+    ]
   }
 }

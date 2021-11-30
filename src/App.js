@@ -3,9 +3,8 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import React from 'react'
 
 import { ROUTE } from 'definitions'
-import ScrollToTop from 'components/Common/ScrollToTop'
-
 import Home from 'components/Home'
+import ScrollToTop from 'components/Common/ScrollToTop'
 
 const App = () => {
   return (

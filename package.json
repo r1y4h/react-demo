@@ -1,59 +1,54 @@
 {
-  "name": "react-template",
+  "name": "react-demo",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/r1y4h/react-template.git",
+  "repository": "https://github.com/r1y4h/react-demo.git",
   "author": "Raymond Dazo <raymond.dazo@outlook.com>",
   "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
-    "lint": "eslint src"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "eslint": "eslint src",
+    "prettier": "prettier src --write"
   },
   "lint-staged": {
-    "src/**/*.{js,json,css}": [
-      "prettier --write",
-      "npm run lint",
+    "src/**/*.{js,json}": [
+      "yarn run prettier",
+      "yarn run lint-all",
       "git add"
     ]
   },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bootstrap": "^5.1.3",
+    "classnames": "^2.3.1",
+    "mobx": "^6.3.8",
+    "mobx-react": "^7.2.1",
+    "query-string": "^7.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "^4.0.3",
+    "reactstrap": "^9.0.1",
+    "smoothscroll-polyfill": "^0.4.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.0",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.3.0"
+  },
+  "packageManager": "yarn@3.1.0",
   "browserslist": [
     ">0.2%",
     "not dead",
-    "not ie <= 11"
-  ],
-  "dependencies": {
-    "axios": "^0.21.1",
-    "bootstrap": "^4.5.0",
-    "classnames": "^2.2.6",
-    "mobx": "^5.15.4",
-    "mobx-react": "^6.2.2",
-    "query-string": "^6.13.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
-    "reactstrap": "^8.4.1",
-    "smoothscroll-polyfill": "^0.4.4",
-    "styled-components": "^5.1.1"
-  },
-  "devDependencies": {
-    "eslint-config-fbjs": "^3.1.1",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.9",
-    "node-sass": "^4.14.1",
-    "prettier": "^2.0.5",
-    "sass-extract": "^2.1.0",
-    "sass-extract-js": "^0.4.0",
-    "sass-extract-loader": "^1.1.0"
-  }
+    "not IE 11"
+  ]
 }

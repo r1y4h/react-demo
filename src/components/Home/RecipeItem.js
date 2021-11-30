@@ -17,7 +17,7 @@ const RecipeItem = ({ recipeData = {} }) => {
       const observableElement = recipeItemRef.current
 
       const observer = new IntersectionObserver(
-        (entities) => {
+        entities => {
           const positionY = entities && entities.length > 0 && entities[0].boundingClientRect.y
           if (prevPositionY > positionY) {
             recipeData.shouldObserve = false

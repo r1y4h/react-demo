@@ -16,7 +16,7 @@ const Home = () => {
 
   const { SearchCriteria, Table } = recipeStore
 
-  const fetchRecipes = useDebounce(async (payload) => {
+  const fetchRecipes = useDebounce(async payload => {
     recipeStore.SearchCriteria.page === 0 && setRecipes([])
 
     await recipeStore.fetchTable(payload)
@@ -31,7 +31,7 @@ const Home = () => {
       if (page === 0) {
         setRecipes(recipeData)
       } else {
-        setRecipes((items) => items.concat(recipeData))
+        setRecipes(items => items.concat(recipeData))
       }
       setNoResultMessage('')
     } else {
@@ -39,7 +39,7 @@ const Home = () => {
         setRecipes([])
         recipeStore.SearchCriteria.search && setNoResultMessage('No results found')
       } else {
-        setRecipes((items) => items)
+        setRecipes(items => items)
       }
     }
   })

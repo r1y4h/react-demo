@@ -18,20 +18,20 @@ const Search = ({ show, onClose }) => {
     onClose && onClose()
   }
 
-  const handleKeyUp = (event) => {
+  const handleKeyUp = event => {
     if (event.keyCode === 13) {
       handleSearch()
     }
   }
 
-  const handleMouseClick = (event) => {
+  const handleMouseClick = event => {
     if (!event.target.closest('#searchContainer') && show) {
       onClose && onClose()
       document.removeEventListener('click', handleMouseClick)
     }
   }
 
-  const handleSearchCriteriaChanged = (value) => {
+  const handleSearchCriteriaChanged = value => {
     setCriteria(value)
   }
 
@@ -48,14 +48,14 @@ const Search = ({ show, onClose }) => {
             autoFocus
             tabIndex="-1"
             placeholder="Search Recipes"
-            ref={(input) => input && input.focus()}
+            ref={input => input && input.focus()}
             value={criteria}
-            onChange={(event) => handleSearchCriteriaChanged(event.target.value)}
+            onChange={event => handleSearchCriteriaChanged(event.target.value)}
             onKeyUp={handleKeyUp}
           />
           <Button
             color="white"
-            onClick={(event) => {
+            onClick={event => {
               event.preventDefault()
               handleSearch()
             }}
