@@ -18,7 +18,7 @@ const MainLayout = ({ children }) => {
   return (
     <React.Fragment>
       <Header />
-      <div ref={contentRef} className="content">
+      <div ref={contentRef} className="content-container">
         <Container>{children}</Container>
       </div>
       <Footer />

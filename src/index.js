@@ -1,20 +1,19 @@
-import { ThemeProvider } from 'styled-components'
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import { BrowserRouter } from 'react-router-dom'
 import smoothscroll from 'smoothscroll-polyfill'
 
 import './sass/main.scss'
 import App from './App'
-
-// eslint-disable-next-line import/no-webpack-loader-syntax
-const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!./sass/_vars.scss')
+import ScrollToTop from 'components/Common/ScrollToTop'
 
 smoothscroll.polyfill()
 
-const render = module.hot ? ReactDOM.render : ReactDOM.hydrate
-render(
-  <ThemeProvider theme={{ theme }}>
+ReactDOM.render(
+  <BrowserRouter>
+    <ScrollToTop />
     <App />
-  </ThemeProvider>,
+  </BrowserRouter>,
   document.getElementById('root')
 )

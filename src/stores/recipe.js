@@ -1,4 +1,4 @@
-import { decorate, observable } from 'mobx'
+import { makeObservable, observable } from 'mobx'
 import BaseStore from 'stores/base'
 
 const defaultSearchCriteria = {
@@ -10,11 +10,13 @@ class RecipeStore extends BaseStore {
   constructor(api) {
     super(api)
     this.api = api
+
+    makeObservable(this, {
+      SearchCriteria: observable,
+    })
   }
 
   SearchCriteria = defaultSearchCriteria
 }
 
-export default decorate(RecipeStore, {
-  SearchCriteria: observable,
-})
+export default RecipeStore

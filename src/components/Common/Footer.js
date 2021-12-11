@@ -1,6 +1,8 @@
 import cx from 'classnames'
 import React, { useEffect, useState } from 'react'
 
+import edamamBadge from 'assets/images/Edamam_Badge.svg'
+
 export default () => {
   const [showScrollToTop, setShowScrollToTop] = useState(false)
 
@@ -24,7 +26,7 @@ export default () => {
   })
 
   return (
-    <footer className="p-2">
+    <footer className="p-2 text-center">
       <span className="text-white">
         <small>Inspired by </small>
         <a
@@ -35,7 +37,9 @@ export default () => {
           Monja
         </a>
       </span>
-      <span id="edamam-badge" data-color="transparent" />
+      <a href="https://www.edamam.com/" target="_blank" rel="noreferrer" className="edamam-badge">
+        <img src={edamamBadge} alt="Edamam" />
+      </a>
       <button
         className={cx('btn btn-white button-scroll-to-top', !showScrollToTop && 'fade')}
         onClick={handleScrollToTop}

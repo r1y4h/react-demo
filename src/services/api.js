@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import { jsonToQueryString } from 'utils/common'
+
 export default class Api {
   constructor(options = {}) {
     this.options = options
@@ -11,7 +13,7 @@ export default class Api {
 
   get = (url, payload = {}, headers = {}) => {
     return this.Instance.get(
-      `${url}${this.payloadToQueryString({
+      `${url}${jsonToQueryString({
         ...payload,
         app_id: this.options.apiId,
         app_key: this.options.apiKey,
@@ -52,10 +54,4 @@ export default class Api {
 
     return defaults
   }
-
-  payloadToQueryString = (payload = {}) =>
-    Object.keys(payload)
-      .filter(key => payload[key])
-      .map((key, index) => `${!index ? '?' : ''}${key}=${encodeURIComponent(payload[key])}`)
-      .join('&')
 }

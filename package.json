@@ -10,13 +10,6 @@
     "eslint": "eslint src",
     "prettier": "prettier src --write"
   },
-  "lint-staged": {
-    "src/**/*.{js,json}": [
-      "yarn run prettier",
-      "yarn run lint-all",
-      "git add"
-    ]
-  },
   "dependencies": {
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",

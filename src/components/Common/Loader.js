@@ -1,23 +1,15 @@
 import React from 'react'
 
 import { Spinner } from 'reactstrap'
-import styled from 'styled-components'
+import cx from 'classnames'
 
 export default ({ show, size = 'md', text = 'Loading...', color = 'primary', className = '' }) => {
   return (
     show && (
-      <LoaderStyled className={className}>
+      <div className={cx('loader d-inline-flex align-items-center', className)}>
         <Spinner size={size} color={color} />
-        {text && <h5 className="ml-2 mb-0">{text}</h5>}
-      </LoaderStyled>
+        {text && <h5 className="ms-2 mb-0">{text}</h5>}
+      </div>
     )
   )
 }
-
-const LoaderStyled = styled.div`
-  display: inline-flex;
-  align-items: center;
-  h5 {
-    font-size: 0.8rem;
-  }
-`

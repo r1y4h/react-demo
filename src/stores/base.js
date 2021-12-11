@@ -1,4 +1,4 @@
-import { decorate, observable } from 'mobx'
+import { makeObservable, observable } from 'mobx'
 
 const defaults = {
   Table: {
@@ -13,22 +13,26 @@ const defaults = {
   },
 }
 
-class BaseRepository {
+class BaseStore {
   constructor(service) {
     this.service = service
+
+    makeObservable(this, {
+      Table: observable,
+      CRUD: observable,
+    })
   }
 
   Table = defaults.Table
   CRUD = defaults.CRUD
 
   fetchTable = async payload => {
-    this.Table = {
-      ...this.Table,
-      loading: true,
-      errors: [],
-    }
+    this.Table.errors = []
+    this.Table.loading = true
 
     const { data, errors } = await this.service.fetchTable(payload)
+
+    this.Table.loading = false
     if (data && !errors.length) {
       this.Table = {
         ...this.Table,
@@ -37,44 +41,26 @@ class BaseRepository {
         hasMore: data.more,
         lastRow: data.to,
         loading: false,
-        errors: [],
       }
-      return true
     } else {
-      this.Table = {
-        ...this.Table,
-        loading: false,
-        errors,
-      }
+      this.CRUD.errors = errors
     }
-    return false
+    return !errors.length && data
   }
 
   getById = async id => {
-    this.CRUD = {
-      ...this.CRUD,
-      loading: true,
-      errors: [],
-    }
+    this.CRUD.errors = []
+    this.CRUD.loading = true
 
     const { data, errors } = await this.service.getById(id)
-    if (data && !errors.length) {
-      this.CRUD = {
-        ...this.CRUD,
-        data,
-        loading: false,
-        errors: [],
-      }
 
-      return true
+    this.CRUD.loading = false
+    if (data && !errors.length) {
+      this.CRUD.data = data
     } else {
-      this.CRUD = {
-        ...this.CRUD,
-        loading: false,
-        errors,
-      }
+      this.CRUD.errors = errors
     }
-    return false
+    return !errors.length && data
   }
 
   clearErrorMessages = () => {
@@ -95,7 +81,4 @@ class BaseRepository {
   }
 }
 
-export default decorate(BaseRepository, {
-  Table: observable,
-  CRUD: observable,
-})
+export default BaseStore

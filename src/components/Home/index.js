@@ -19,7 +19,7 @@ const Home = () => {
   const fetchRecipes = useDebounce(async payload => {
     recipeStore.SearchCriteria.page === 0 && setRecipes([])
 
-    await recipeStore.fetchTable(payload)
+    // await recipeStore.fetchTable(payload)
 
     const {
       SearchCriteria: { page },
@@ -45,8 +45,11 @@ const Home = () => {
   })
 
   useEffect(() => {
-    const pageSize = 10
-    fetchRecipes({ q: recipeStore.SearchCriteria.search, from: recipeStore.SearchCriteria.page, to: pageSize })
+    // const pageSize = 10
+    fetchRecipes({
+      q: recipeStore.SearchCriteria.search,
+      //from: recipeStore.SearchCriteria.page, to: pageSize
+    })
   }, [recipeStore.SearchCriteria, fetchRecipes])
 
   return (
@@ -55,7 +58,7 @@ const Home = () => {
       {recipes.map((recipeData, index) => (
         <RecipeItem key={index} recipeData={recipeData} />
       ))}
-      <Loader show={Table.loading} className="pl-3" />
+      <Loader show={Table.loading} className="ps-3" />
     </MainContainer>
   )
 }
